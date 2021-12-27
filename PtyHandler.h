@@ -3,7 +3,11 @@
 #include <queue>
 #include <string>
 #include <memory>
-#include "Command.h"
+
+struct Command {
+	std::string command;
+	std::string expect;
+};
 
 class PtyHandler {
 

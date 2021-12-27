@@ -7,7 +7,6 @@
 #include <stdexcept>
 
 #include "PtyHandler.h"
-#include "Command.h"
 
 PtyHandler::PtyHandler() {
 
@@ -50,8 +49,8 @@ void PtyHandler::addToQueue(const Command& commandToAdd) {
 
 void PtyHandler::typeNextCommand() {
 
-    std::string currentCommand{ m_commands.front()->getCommand() };
-    std::string currentExpect{ m_commands.front()->getExpect() };
+    std::string currentCommand{ m_commands.front()->command };
+    std::string currentExpect{ m_commands.front()->expect };
     m_commands.pop();
 
     char previousCharacter{currentCommand[0]};
