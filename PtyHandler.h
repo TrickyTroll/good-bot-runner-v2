@@ -26,6 +26,7 @@ public:
 	void addToQueue(const Command& commandToAdd);
 	void typeNextCommand();
 	void typeAll();
+	void closePty();
 
 private:
 

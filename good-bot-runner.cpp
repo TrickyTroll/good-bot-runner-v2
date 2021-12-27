@@ -15,7 +15,7 @@ int main() {
 
 	ptyhandler.typeAll();
 	
-	ptyhandler.close();
+	ptyhandler.closePty();
 	
 	return 0;
 }

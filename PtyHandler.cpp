@@ -20,6 +20,11 @@ PtyHandler::PtyHandler() {
         close(m_slaveFD);
         throw std::runtime_error("Cannot start child process.");
     }
+    // Start shell process
+    if (m_pid == 0) {
+        const char* argv[] = { "/bin/bash", NULL };
+        execvp(argv[0], const_cast<char* const*>(argv));
+    }
 }
 
 PtyHandler::~PtyHandler() {
@@ -130,5 +135,10 @@ void PtyHandler::typeAll() {
     for (int i{ 0 }; i < m_commands.size(); i++) {
         typeNextCommand();
     }
+}
+
+void PtyHandler::closePty() {
+    close(m_masterFD);
+    close(m_slaveFD);
 }
 
